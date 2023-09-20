@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Web lab#1 by Roman</title>
+        <script src="scripts/drawCanvas.js" defer></script>
+        <script src="scripts/transferData.js" defer></script>
+        <script src="scripts/parseData.js" defer></script>
+        <style>
+            
+            #canvas {
+                display: block;
+                height: 200px;
+                margin: 0 auto;
+            }
+
+            .header{
+                font-size: 10px;
+                text-align: center;
+            }
+
+            .card{
+                display: block;
+                width: 440px;
+                height: auto;
+                margin: 0 auto;
+                padding: 16px;
+                border-radius: 2%;
+                box-shadow: 0 3px 15px #ccc;
+            }
+
+            .card-form{
+                display: block;
+                width: auto;
+                height: auto;
+                border-radius: 1%;
+                margin: 12px auto;
+                border: 1px solid #ccc;
+                border-radius: 2%;
+            }
+
+            .card-form-table{
+                display: table;
+                padding: 20px;
+                margin: auto;
+            }
+
+            .subtitle{
+                font-size: 15px;
+                text-align: center;
+            }
+
+            .table-row{
+                display: table-row;
+                font-size: 15px;
+            }
+
+            .table-cell{
+                display: table-cell;
+                width: 150px;
+                margin: 5px 0 0 40px;
+            }
+
+            .table-cell-select{
+                display: table-cell;
+                width: 158px;
+                margin: 5px 0 10px 40px;
+            }
+
+            .table-cell-hint{
+                display: table-cell;
+                width: 158px;
+                margin: 5px 0 0 40px;
+                font-size: 10px;
+                text-align: end;
+            }
+
+            .send-button{
+                max-width: fit-content;
+                margin: 0 auto 10px auto;
+            }
+
+            .result-row{
+                display: table-row;
+            }
+
+            .result-cell{
+                display: table-cell;
+                font-size: 14px;
+                padding: 0 12px;
+                border: 1px solid #ccc;
+
+            }
+
+
+
+        </style>
+    </head>
+
+    <body>
+        <div class="card">
+            <div class="header">
+                <h1>Матвеев Роман Николаевич, P3217, вариант 2703</h1>
+            </div>
+            <canvas id="canvas"></canvas>
+
+            <div class="card-form">
+
+                <h2 class="subtitle">Введите данные</h2>
+
+                <div class="card-form-table">
+                
+                    <div class="table-row">
+                        <div id="x" class="table-cell">Значение x = 0</div>
+                        <select id="selector" class="table-cell-select" onchange="set_x_value()">
+                            <option value="-3" id="opm2">-3</option>
+                            <option value="-2" id="opm1_5">-2</option>
+                            <option value="-1" id="opm1">-1</option>
+                            <option value="0" id="opm0_5">0</option>
+                            <option value="1" id="op0">1</option>
+                            <option value="2" id="op0_5">2</option>
+                            <option value="3" id="op1">3</option>
+                            <option value="4" id="op1_5">4</option>
+                            <option value="5" id="op2">5</option>
+                        </select>
+                    </div>
+                    <div class="table-row">
+                        <div id="y" class="table-cell">Значение y = 0</div>
+                        <div class="table-cell-hint">
+                            <input id="get_y" type="number" value="0" class="table-cell" onchange="set_y_value()" onkeypress = "this.onchange();"
+                            onpaste    = "this.onchange();"
+                            oninput    = "this.onchange();">
+                            Введите значение в диапозоне (-5..5)
+                        </div>
+                    </div>
+                    <div class="table-row">
+                        <div id="r" class="table-cell">Значение R = 0</div>
+                        <div class="table-cell-hint">
+                            <input id="get_r" type="number" value="2" class="table-cell" onchange="set_r_value()" onkeypress = "this.onchange();"
+                            onpaste    = "this.onchange();"
+                            oninput    = "this.onchange();">
+                            Введите значение в диапозоне (1..4)
+                        </div>
+                    </div>
+                </div>
+
+                <div id="send-button" class="send-button">
+                    <button>Отправить</button>
+                </div>
+
+            </div>
+
+            <div class="card-form">
+
+                <h2 class="subtitle">Результаты</h2>
+
+                <div id="list" class="card-form-table">
+                    <div class="result-row">
+                        <div class="result-cell">
+                            X
+                        </div>
+                        <div class="result-cell">
+                            Y
+                        </div>
+                        <div class="result-cell">
+                            R
+                        </div>
+                        <div class="result-cell">
+                            Результат
+                        </div>
+                        <div class="result-cell">
+                            Время отправки
+                        </div>
+                        <div class="result-cell">
+                            Время работы скрипта
+                        </div>
+                    </div>
+                </div>
+                
+                    
+
+            </div>
+
+        </div>
+    </body>
+
+</html>
